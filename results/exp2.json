@@ -1,0 +1,2297 @@
+{
+  "artifact": "results/exp2.json",
+  "commit_sha": "f42514c3d716dc81c2bbc65b883c9dc545fcb56d",
+  "false_negatives": 38,
+  "false_positives": 0,
+  "fetch_command": null,
+  "label_count": 52,
+  "matching_note": "predictions overlapping no label are counted in unmatched_prediction_count, not as false positives: the label set is a deliberate sample (sampling_rule in labels.json), so a detection outside the sample is not an extraction error",
+  "measurement_environment": {
+    "cpu_cores": 8,
+    "cpu_model": "Apple M2",
+    "filesystem": "apfs",
+    "is_reference_profile": false,
+    "label": "advisory",
+    "os": "Darwin",
+    "os_version": "25.5.0",
+    "python_version": "3.13.12",
+    "ram_gb": 8
+  },
+  "measurement_interpretation": "precision is undefined and recorded as 0.0: the C-1 extractor produced 0 predictions over the labelled sample against 38 positive labels, so recall is 0.000 (0/38) \u2014 there is nothing for a precision figure to describe; the numbers do not demonstrate NFR-2's intent (>= 0.80 precision on resolvable wrapper-resolved sites) in either direction, and the 'fail' verdict records 'gate undemonstrated', not 'every prediction wrong'",
+  "measurement_scope_note": "primary measurement is c1_only (the t9/t13 C-1-only extraction gate; all pre-existing top-level fields mirror that block and the 0.80 precision gate is judged on it); the pipeline block is an additive C-1 parse -> C-2 IR ingest measurement of the same frozen labels recorded so the lead can decide what the gate measures \u2014 the gate has NOT been re-pointed at the better-looking number",
+  "measurements": {
+    "c1_only": {
+      "artifact": "results/exp2.json",
+      "commit_sha": "f42514c3d716dc81c2bbc65b883c9dc545fcb56d",
+      "false_negatives": 38,
+      "false_positives": 0,
+      "fetch_command": null,
+      "label_count": 52,
+      "matching_note": "predictions overlapping no label are counted in unmatched_prediction_count, not as false positives: the label set is a deliberate sample (sampling_rule in labels.json), so a detection outside the sample is not an extraction error",
+      "measurement_environment": {
+        "cpu_cores": 8,
+        "cpu_model": "Apple M2",
+        "filesystem": "apfs",
+        "is_reference_profile": false,
+        "label": "advisory",
+        "os": "Darwin",
+        "os_version": "25.5.0",
+        "python_version": "3.13.12",
+        "ram_gb": 8
+      },
+      "measurement_interpretation": "precision is undefined and recorded as 0.0: the C-1 extractor produced 0 predictions over the labelled sample against 38 positive labels, so recall is 0.000 (0/38) \u2014 there is nothing for a precision figure to describe; the numbers do not demonstrate NFR-2's intent (>= 0.80 precision on resolvable wrapper-resolved sites) in either direction, and the 'fail' verdict records 'gate undemonstrated', not 'every prediction wrong'",
+      "method": "tree_sitter_parse",
+      "negative_label_count": 14,
+      "per_label": [
+        {
+          "callsite_id": "cs-001",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 63,
+            "start_line": 63
+          }
+        },
+        {
+          "callsite_id": "cs-002",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "multi",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 91,
+            "start_line": 91
+          }
+        },
+        {
+          "callsite_id": "cs-003",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "hset",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 126,
+            "start_line": 126
+          }
+        },
+        {
+          "callsite_id": "cs-004",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 147,
+            "start_line": 143
+          }
+        },
+        {
+          "callsite_id": "cs-005",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 167,
+            "start_line": 167
+          }
+        },
+        {
+          "callsite_id": "cs-006",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 170,
+            "start_line": 170
+          }
+        },
+        {
+          "callsite_id": "cs-007",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 172,
+            "start_line": 172
+          }
+        },
+        {
+          "callsite_id": "cs-008",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 319,
+            "start_line": 319
+          }
+        },
+        {
+          "callsite_id": "cs-009",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 350,
+            "start_line": 350
+          }
+        },
+        {
+          "callsite_id": "cs-010",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/job.ts",
+          "method": "addJob",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 275,
+            "start_line": 275
+          }
+        },
+        {
+          "callsite_id": "cs-011",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/job.ts",
+          "method": "moveToCompleted",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 675,
+            "start_line": 675
+          }
+        },
+        {
+          "callsite_id": "cs-012",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 60,
+            "start_line": 60
+          }
+        },
+        {
+          "callsite_id": "cs-013",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 106,
+            "start_line": 106
+          }
+        },
+        {
+          "callsite_id": "cs-014",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 110,
+            "start_line": 110
+          }
+        },
+        {
+          "callsite_id": "cs-015",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 115,
+            "start_line": 115
+          }
+        },
+        {
+          "callsite_id": "cs-016",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "multi",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 505,
+            "start_line": 505
+          }
+        },
+        {
+          "callsite_id": "cs-017",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 564,
+            "start_line": 564
+          }
+        },
+        {
+          "callsite_id": "cs-018",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 578,
+            "start_line": 578
+          }
+        },
+        {
+          "callsite_id": "cs-019",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 585,
+            "start_line": 585
+          }
+        },
+        {
+          "callsite_id": "cs-020",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "scan",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 808,
+            "start_line": 808
+          }
+        },
+        {
+          "callsite_id": "cs-021",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 850,
+            "start_line": 850
+          }
+        },
+        {
+          "callsite_id": "cs-022",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 1025,
+            "start_line": 1025
+          }
+        },
+        {
+          "callsite_id": "cs-023",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "exec",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 1057,
+            "start_line": 1057
+          }
+        },
+        {
+          "callsite_id": "cs-024",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/queue-getters.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 704,
+            "start_line": 704
+          }
+        },
+        {
+          "callsite_id": "cs-025",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-connection.ts",
+          "method": "new IORedisCtor",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 409,
+            "start_line": 409
+          }
+        },
+        {
+          "callsite_id": "cs-026",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-connection.ts",
+          "method": "new IORedisCtor",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 410,
+            "start_line": 410
+          }
+        },
+        {
+          "callsite_id": "cs-027",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-connection.ts",
+          "method": "createIORedisClient",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 411,
+            "start_line": 411
+          }
+        },
+        {
+          "callsite_id": "cs-028",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/redis-connection.ts",
+          "method": "on",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 417,
+            "start_line": 417
+          }
+        },
+        {
+          "callsite_id": "cs-029",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "clientSetName",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 342,
+            "start_line": 342
+          }
+        },
+        {
+          "callsite_id": "cs-030",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "runCommand",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 443,
+            "start_line": 443
+          }
+        },
+        {
+          "callsite_id": "cs-031",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "lpos",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 475,
+            "start_line": 475
+          }
+        },
+        {
+          "callsite_id": "cs-032",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "zscore",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 485,
+            "start_line": 485
+          }
+        },
+        {
+          "callsite_id": "cs-033",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "pipeline",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 711,
+            "start_line": 711
+          }
+        },
+        {
+          "callsite_id": "cs-034",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "multi",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 756,
+            "start_line": 756
+          }
+        },
+        {
+          "callsite_id": "cs-035",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hgetall",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 1813,
+            "start_line": 1813
+          }
+        },
+        {
+          "callsite_id": "cs-036",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 1824,
+            "start_line": 1824
+          }
+        },
+        {
+          "callsite_id": "cs-037",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "zrevrange",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 1825,
+            "start_line": 1825
+          }
+        },
+        {
+          "callsite_id": "cs-038",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "scan",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2357,
+            "start_line": 2357
+          }
+        },
+        {
+          "callsite_id": "cs-039",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hgetall",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2478,
+            "start_line": 2478
+          }
+        },
+        {
+          "callsite_id": "cs-040",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2486,
+            "start_line": 2486
+          }
+        },
+        {
+          "callsite_id": "cs-041",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2522,
+            "start_line": 2522
+          }
+        },
+        {
+          "callsite_id": "cs-042",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hset",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2721,
+            "start_line": 2721
+          }
+        },
+        {
+          "callsite_id": "cs-043",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hexists",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2746,
+            "start_line": 2746
+          }
+        },
+        {
+          "callsite_id": "cs-044",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2752,
+            "start_line": 2752
+          }
+        },
+        {
+          "callsite_id": "cs-045",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2759,
+            "start_line": 2759
+          }
+        },
+        {
+          "callsite_id": "cs-046",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "xadd",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2865,
+            "start_line": 2865
+          }
+        },
+        {
+          "callsite_id": "cs-047",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "xread",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 2874,
+            "start_line": 2874
+          }
+        },
+        {
+          "callsite_id": "cs-048",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-relay-backend.ts",
+          "method": "runCommand",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 274,
+            "start_line": 268
+          }
+        },
+        {
+          "callsite_id": "cs-049",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-relay-backend.ts",
+          "method": "xread",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 284,
+            "start_line": 281
+          }
+        },
+        {
+          "callsite_id": "cs-050",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/job-scheduler.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 383,
+            "start_line": 383
+          }
+        },
+        {
+          "callsite_id": "cs-051",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/flow-producer.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 561,
+            "start_line": 561
+          }
+        },
+        {
+          "callsite_id": "cs-052",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/flow-producer.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_client_hint": null,
+          "predicted_method": null,
+          "span": {
+            "end_line": 562,
+            "start_line": 562
+          }
+        }
+      ],
+      "pinned_sha": "f42514c3d716dc81c2bbc65b883c9dc545fcb56d",
+      "pinned_tag": "v6.4.2",
+      "positive_label_count": 38,
+      "precision": 0.0,
+      "precision_note": "degenerate precision: the extractor produced 0 callsite predictions over the labelled sample, so TP + FP == 0 and TP / (TP + FP) is undefined (0/0); recorded as 0.0 with this note, never as a vacuous pass \u2014 the extractor recognised none of the positive labels",
+      "precision_threshold": 0.8,
+      "recall": 0.0,
+      "recall_note": null,
+      "repo": "bullmq",
+      "schema_version": "eval-schema 0.1.1",
+      "tolerance": "exact per-callsite match on resolved_depth and tier; template_correct must match",
+      "true_negatives": 14,
+      "true_positives": 0,
+      "unmatched_prediction_count": 0,
+      "verdict": "fail"
+    },
+    "pipeline": {
+      "attribution_note": "attribution surface: an Op row attributes a Redis operation to a label when Op.file_id resolves to the label file via the delta's FileRow.path, Op.method equals the label method, and Op.line falls inside the label span; Op.line is callsite.span.start_line as emitted by ir.builder._emit_op_and_key_expr \u2014 no heuristic mapping is invented",
+      "false_negatives": 38,
+      "false_positives": 0,
+      "ir_row_counts": {
+        "clients": 0,
+        "files": 10,
+        "key_exprs": 0,
+        "ops": 0,
+        "scopes": 606,
+        "unknowns": 194
+      },
+      "label_count": 52,
+      "measurement_interpretation": "precision is undefined and recorded as 0.0: the full pipeline (C-1 parse -> C-2 IR ingest) produced 0 predictions over the labelled sample against 38 positive labels, so recall is 0.000 (0/38) \u2014 there is nothing for a precision figure to describe; the numbers do not demonstrate NFR-2's intent (>= 0.80 precision on resolvable wrapper-resolved sites) in either direction, and the 'fail' verdict records 'gate undemonstrated', not 'every prediction wrong'",
+      "method": "c1_parse_then_ir_ingest",
+      "mode": "pipeline",
+      "negative_label_count": 14,
+      "per_label": [
+        {
+          "callsite_id": "cs-001",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 63,
+            "start_line": 63
+          }
+        },
+        {
+          "callsite_id": "cs-002",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "multi",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 91,
+            "start_line": 91
+          }
+        },
+        {
+          "callsite_id": "cs-003",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "hset",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 126,
+            "start_line": 126
+          }
+        },
+        {
+          "callsite_id": "cs-004",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 147,
+            "start_line": 143
+          }
+        },
+        {
+          "callsite_id": "cs-005",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 167,
+            "start_line": 167
+          }
+        },
+        {
+          "callsite_id": "cs-006",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 170,
+            "start_line": 170
+          }
+        },
+        {
+          "callsite_id": "cs-007",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 172,
+            "start_line": 172
+          }
+        },
+        {
+          "callsite_id": "cs-008",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 319,
+            "start_line": 319
+          }
+        },
+        {
+          "callsite_id": "cs-009",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/ioredis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 350,
+            "start_line": 350
+          }
+        },
+        {
+          "callsite_id": "cs-010",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/job.ts",
+          "method": "addJob",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 275,
+            "start_line": 275
+          }
+        },
+        {
+          "callsite_id": "cs-011",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/job.ts",
+          "method": "moveToCompleted",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 675,
+            "start_line": 675
+          }
+        },
+        {
+          "callsite_id": "cs-012",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 60,
+            "start_line": 60
+          }
+        },
+        {
+          "callsite_id": "cs-013",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 106,
+            "start_line": 106
+          }
+        },
+        {
+          "callsite_id": "cs-014",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 110,
+            "start_line": 110
+          }
+        },
+        {
+          "callsite_id": "cs-015",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/lock-manager.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 115,
+            "start_line": 115
+          }
+        },
+        {
+          "callsite_id": "cs-016",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "multi",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 505,
+            "start_line": 505
+          }
+        },
+        {
+          "callsite_id": "cs-017",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 564,
+            "start_line": 564
+          }
+        },
+        {
+          "callsite_id": "cs-018",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 578,
+            "start_line": 578
+          }
+        },
+        {
+          "callsite_id": "cs-019",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 585,
+            "start_line": 585
+          }
+        },
+        {
+          "callsite_id": "cs-020",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "scan",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 808,
+            "start_line": 808
+          }
+        },
+        {
+          "callsite_id": "cs-021",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 850,
+            "start_line": 850
+          }
+        },
+        {
+          "callsite_id": "cs-022",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 1025,
+            "start_line": 1025
+          }
+        },
+        {
+          "callsite_id": "cs-023",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/node-redis-client.ts",
+          "method": "exec",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 1057,
+            "start_line": 1057
+          }
+        },
+        {
+          "callsite_id": "cs-024",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/queue-getters.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 704,
+            "start_line": 704
+          }
+        },
+        {
+          "callsite_id": "cs-025",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-connection.ts",
+          "method": "new IORedisCtor",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 409,
+            "start_line": 409
+          }
+        },
+        {
+          "callsite_id": "cs-026",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-connection.ts",
+          "method": "new IORedisCtor",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 410,
+            "start_line": 410
+          }
+        },
+        {
+          "callsite_id": "cs-027",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-connection.ts",
+          "method": "createIORedisClient",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 411,
+            "start_line": 411
+          }
+        },
+        {
+          "callsite_id": "cs-028",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/redis-connection.ts",
+          "method": "on",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 417,
+            "start_line": 417
+          }
+        },
+        {
+          "callsite_id": "cs-029",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "clientSetName",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 342,
+            "start_line": 342
+          }
+        },
+        {
+          "callsite_id": "cs-030",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "runCommand",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 443,
+            "start_line": 443
+          }
+        },
+        {
+          "callsite_id": "cs-031",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "lpos",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 475,
+            "start_line": 475
+          }
+        },
+        {
+          "callsite_id": "cs-032",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "zscore",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 485,
+            "start_line": 485
+          }
+        },
+        {
+          "callsite_id": "cs-033",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "pipeline",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 711,
+            "start_line": 711
+          }
+        },
+        {
+          "callsite_id": "cs-034",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "multi",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 756,
+            "start_line": 756
+          }
+        },
+        {
+          "callsite_id": "cs-035",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hgetall",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 1813,
+            "start_line": 1813
+          }
+        },
+        {
+          "callsite_id": "cs-036",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "zrange",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 1824,
+            "start_line": 1824
+          }
+        },
+        {
+          "callsite_id": "cs-037",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "zrevrange",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 1825,
+            "start_line": 1825
+          }
+        },
+        {
+          "callsite_id": "cs-038",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "scan",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2357,
+            "start_line": 2357
+          }
+        },
+        {
+          "callsite_id": "cs-039",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hgetall",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2478,
+            "start_line": 2478
+          }
+        },
+        {
+          "callsite_id": "cs-040",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "get",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2486,
+            "start_line": 2486
+          }
+        },
+        {
+          "callsite_id": "cs-041",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2522,
+            "start_line": 2522
+          }
+        },
+        {
+          "callsite_id": "cs-042",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hset",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2721,
+            "start_line": 2721
+          }
+        },
+        {
+          "callsite_id": "cs-043",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "hexists",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2746,
+            "start_line": 2746
+          }
+        },
+        {
+          "callsite_id": "cs-044",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "set",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2752,
+            "start_line": 2752
+          }
+        },
+        {
+          "callsite_id": "cs-045",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "del",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2759,
+            "start_line": 2759
+          }
+        },
+        {
+          "callsite_id": "cs-046",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "xadd",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2865,
+            "start_line": 2865
+          }
+        },
+        {
+          "callsite_id": "cs-047",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-queue-backend.ts",
+          "method": "xread",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 2874,
+            "start_line": 2874
+          }
+        },
+        {
+          "callsite_id": "cs-048",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-relay-backend.ts",
+          "method": "runCommand",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 274,
+            "start_line": 268
+          }
+        },
+        {
+          "callsite_id": "cs-049",
+          "classification": "false_negative",
+          "expected_is_redis_callsite": true,
+          "file": "src/classes/redis-relay-backend.ts",
+          "method": "xread",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 284,
+            "start_line": 281
+          }
+        },
+        {
+          "callsite_id": "cs-050",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/job-scheduler.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 383,
+            "start_line": 383
+          }
+        },
+        {
+          "callsite_id": "cs-051",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/flow-producer.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 561,
+            "start_line": 561
+          }
+        },
+        {
+          "callsite_id": "cs-052",
+          "classification": "true_negative",
+          "expected_is_redis_callsite": false,
+          "file": "src/classes/flow-producer.ts",
+          "method": "keys",
+          "predicted": false,
+          "predicted_method": null,
+          "predicted_op_line": null,
+          "span": {
+            "end_line": 562,
+            "start_line": 562
+          }
+        }
+      ],
+      "positive_label_count": 38,
+      "precision": 0.0,
+      "precision_note": "degenerate precision: the full pipeline (C-1 parse -> C-2 IR ingest) attributed 0 Redis operations to the labelled sample, so TP + FP == 0 and TP / (TP + FP) is undefined (0/0); recorded as 0.0 with this note, never as a vacuous pass. IR evidence over the labelled files: 0 Op rows, 0 Client rows, 194 unknown entries \u2014 the ingest cycle ran successfully and simply attributes nothing here (see ir_row_counts and attribution_note); this measures the pipeline's outcome on the sample, not a measurement failure",
+      "precision_threshold": 0.8,
+      "recall": 0.0,
+      "recall_note": null,
+      "tolerance": "exact per-callsite match on resolved_depth and tier; template_correct must match",
+      "true_negatives": 14,
+      "true_positives": 0,
+      "verdict": "fail"
+    }
+  },
+  "method": "tree_sitter_parse",
+  "negative_label_count": 14,
+  "per_label": [
+    {
+      "callsite_id": "cs-001",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "get",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 63,
+        "start_line": 63
+      }
+    },
+    {
+      "callsite_id": "cs-002",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "multi",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 91,
+        "start_line": 91
+      }
+    },
+    {
+      "callsite_id": "cs-003",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "hset",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 126,
+        "start_line": 126
+      }
+    },
+    {
+      "callsite_id": "cs-004",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 147,
+        "start_line": 143
+      }
+    },
+    {
+      "callsite_id": "cs-005",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "zrange",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 167,
+        "start_line": 167
+      }
+    },
+    {
+      "callsite_id": "cs-006",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "zrange",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 170,
+        "start_line": 170
+      }
+    },
+    {
+      "callsite_id": "cs-007",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "zrange",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 172,
+        "start_line": 172
+      }
+    },
+    {
+      "callsite_id": "cs-008",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 319,
+        "start_line": 319
+      }
+    },
+    {
+      "callsite_id": "cs-009",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/ioredis-client.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 350,
+        "start_line": 350
+      }
+    },
+    {
+      "callsite_id": "cs-010",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/job.ts",
+      "method": "addJob",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 275,
+        "start_line": 275
+      }
+    },
+    {
+      "callsite_id": "cs-011",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/job.ts",
+      "method": "moveToCompleted",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 675,
+        "start_line": 675
+      }
+    },
+    {
+      "callsite_id": "cs-012",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/lock-manager.ts",
+      "method": "get",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 60,
+        "start_line": 60
+      }
+    },
+    {
+      "callsite_id": "cs-013",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/lock-manager.ts",
+      "method": "keys",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 106,
+        "start_line": 106
+      }
+    },
+    {
+      "callsite_id": "cs-014",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/lock-manager.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 110,
+        "start_line": 110
+      }
+    },
+    {
+      "callsite_id": "cs-015",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/lock-manager.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 115,
+        "start_line": 115
+      }
+    },
+    {
+      "callsite_id": "cs-016",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "multi",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 505,
+        "start_line": 505
+      }
+    },
+    {
+      "callsite_id": "cs-017",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "get",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 564,
+        "start_line": 564
+      }
+    },
+    {
+      "callsite_id": "cs-018",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 578,
+        "start_line": 578
+      }
+    },
+    {
+      "callsite_id": "cs-019",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "del",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 585,
+        "start_line": 585
+      }
+    },
+    {
+      "callsite_id": "cs-020",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "scan",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 808,
+        "start_line": 808
+      }
+    },
+    {
+      "callsite_id": "cs-021",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "keys",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 850,
+        "start_line": 850
+      }
+    },
+    {
+      "callsite_id": "cs-022",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "del",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 1025,
+        "start_line": 1025
+      }
+    },
+    {
+      "callsite_id": "cs-023",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/node-redis-client.ts",
+      "method": "exec",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 1057,
+        "start_line": 1057
+      }
+    },
+    {
+      "callsite_id": "cs-024",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/queue-getters.ts",
+      "method": "keys",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 704,
+        "start_line": 704
+      }
+    },
+    {
+      "callsite_id": "cs-025",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-connection.ts",
+      "method": "new IORedisCtor",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 409,
+        "start_line": 409
+      }
+    },
+    {
+      "callsite_id": "cs-026",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-connection.ts",
+      "method": "new IORedisCtor",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 410,
+        "start_line": 410
+      }
+    },
+    {
+      "callsite_id": "cs-027",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-connection.ts",
+      "method": "createIORedisClient",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 411,
+        "start_line": 411
+      }
+    },
+    {
+      "callsite_id": "cs-028",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/redis-connection.ts",
+      "method": "on",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 417,
+        "start_line": 417
+      }
+    },
+    {
+      "callsite_id": "cs-029",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "clientSetName",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 342,
+        "start_line": 342
+      }
+    },
+    {
+      "callsite_id": "cs-030",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "runCommand",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 443,
+        "start_line": 443
+      }
+    },
+    {
+      "callsite_id": "cs-031",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "lpos",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 475,
+        "start_line": 475
+      }
+    },
+    {
+      "callsite_id": "cs-032",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "zscore",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 485,
+        "start_line": 485
+      }
+    },
+    {
+      "callsite_id": "cs-033",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "pipeline",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 711,
+        "start_line": 711
+      }
+    },
+    {
+      "callsite_id": "cs-034",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "multi",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 756,
+        "start_line": 756
+      }
+    },
+    {
+      "callsite_id": "cs-035",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "hgetall",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 1813,
+        "start_line": 1813
+      }
+    },
+    {
+      "callsite_id": "cs-036",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "zrange",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 1824,
+        "start_line": 1824
+      }
+    },
+    {
+      "callsite_id": "cs-037",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "zrevrange",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 1825,
+        "start_line": 1825
+      }
+    },
+    {
+      "callsite_id": "cs-038",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "scan",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2357,
+        "start_line": 2357
+      }
+    },
+    {
+      "callsite_id": "cs-039",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "hgetall",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2478,
+        "start_line": 2478
+      }
+    },
+    {
+      "callsite_id": "cs-040",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "get",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2486,
+        "start_line": 2486
+      }
+    },
+    {
+      "callsite_id": "cs-041",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "del",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2522,
+        "start_line": 2522
+      }
+    },
+    {
+      "callsite_id": "cs-042",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "hset",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2721,
+        "start_line": 2721
+      }
+    },
+    {
+      "callsite_id": "cs-043",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "hexists",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2746,
+        "start_line": 2746
+      }
+    },
+    {
+      "callsite_id": "cs-044",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "set",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2752,
+        "start_line": 2752
+      }
+    },
+    {
+      "callsite_id": "cs-045",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "del",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2759,
+        "start_line": 2759
+      }
+    },
+    {
+      "callsite_id": "cs-046",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "xadd",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2865,
+        "start_line": 2865
+      }
+    },
+    {
+      "callsite_id": "cs-047",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-queue-backend.ts",
+      "method": "xread",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 2874,
+        "start_line": 2874
+      }
+    },
+    {
+      "callsite_id": "cs-048",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-relay-backend.ts",
+      "method": "runCommand",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 274,
+        "start_line": 268
+      }
+    },
+    {
+      "callsite_id": "cs-049",
+      "classification": "false_negative",
+      "expected_is_redis_callsite": true,
+      "file": "src/classes/redis-relay-backend.ts",
+      "method": "xread",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 284,
+        "start_line": 281
+      }
+    },
+    {
+      "callsite_id": "cs-050",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/job-scheduler.ts",
+      "method": "keys",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 383,
+        "start_line": 383
+      }
+    },
+    {
+      "callsite_id": "cs-051",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/flow-producer.ts",
+      "method": "keys",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 561,
+        "start_line": 561
+      }
+    },
+    {
+      "callsite_id": "cs-052",
+      "classification": "true_negative",
+      "expected_is_redis_callsite": false,
+      "file": "src/classes/flow-producer.ts",
+      "method": "keys",
+      "predicted": false,
+      "predicted_client_hint": null,
+      "predicted_method": null,
+      "span": {
+        "end_line": 562,
+        "start_line": 562
+      }
+    }
+  ],
+  "pinned_sha": "f42514c3d716dc81c2bbc65b883c9dc545fcb56d",
+  "pinned_tag": "v6.4.2",
+  "positive_label_count": 38,
+  "precision": 0.0,
+  "precision_note": "degenerate precision: the extractor produced 0 callsite predictions over the labelled sample, so TP + FP == 0 and TP / (TP + FP) is undefined (0/0); recorded as 0.0 with this note, never as a vacuous pass \u2014 the extractor recognised none of the positive labels",
+  "precision_threshold": 0.8,
+  "recall": 0.0,
+  "recall_note": null,
+  "repo": "bullmq",
+  "schema_version": "eval-schema 0.1.1",
+  "tolerance": "exact per-callsite match on resolved_depth and tier; template_correct must match",
+  "true_negatives": 14,
+  "true_positives": 0,
+  "unmatched_prediction_count": 0,
+  "verdict": "fail"
+}

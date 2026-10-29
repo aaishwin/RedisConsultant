@@ -1,0 +1,20 @@
+{
+  "repos": [
+    {
+      "commit_sha": "f42514c3d716dc81c2bbc65b883c9dc545fcb56d",
+      "fetch_command": "uv run python -m evaltools.corpus.fetch_upstream --dest corpora/upstream/bullmq",
+      "fetch_date": "2026-10-27",
+      "licence": "MIT",
+      "present": true,
+      "repo": "bullmq",
+      "source_paths": [
+        "src"
+      ],
+      "upstream_version": "6.4.2",
+      "url": "https://github.com/taskforcesh/bullmq.git"
+    }
+  ],
+  "schema_version": "eval-schema 0.1.1",
+  "vendored_tree_committed": false,
+  "verdict": "pass"
+}

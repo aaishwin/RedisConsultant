@@ -1,0 +1,10 @@
+/.*
+!.gitattributes
+!.gitignore
+!.python-version
+__pycache__/
+*.py[cod]
+.venv/
+corpora/
+upstream/
+.pytest_cache/

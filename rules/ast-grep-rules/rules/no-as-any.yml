@@ -1,0 +1,23 @@
+---
+id: no-as-any
+name: No `as any` type assertion
+language: TypeScript
+severity: error
+category: type-safety
+message: >-
+  Type assertion to `any` — use a precise type, or `unknown` plus a validated
+  cast
+note: |
+  Rule 3 of the repository style contract. This project-level rule shares its
+  id with pi-lens's bundled `no-as-any` rule, so it overrides that definition
+  (project rules win over bundled rules with the same id, see
+  docs/custom-rules.md) and promotes it from `warning` to `error`.
+
+  `as any` disables type checking for the expression and erases the very type
+  information the IR frontend needs at a callsite. Narrow with a real type,
+  or go through `unknown` and validate before casting.
+
+  Note: TypeScript-only (`as` does not exist in JavaScript); the TypeScript
+  language entry covers both `.ts` and `.tsx` sources.
+rule:
+  pattern: $X as any

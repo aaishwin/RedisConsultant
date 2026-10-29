@@ -1,0 +1,85 @@
+[project]
+name = "redis-intel"
+version = "0.1.0"
+description = "Redis intel: TypeScript/JavaScript tree-sitter frontend, IR, governance and experiment tooling"
+requires-python = ">=3.12"
+dependencies = [
+    "tree-sitter==0.23.2",
+    "tree-sitter-typescript==0.23.2",
+    "tree-sitter-javascript==0.23.1",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+# ---------------------------------------------------------------------------
+# Enforced style contract (Ruff is the dispatch runner pi-lens uses for Python,
+# see docs/language-coverage.md: "ruff-lint"). Every rule below is selected
+# because a project convention requires it; see the numbered mapping comments.
+# ---------------------------------------------------------------------------
+[tool.ruff]
+# E111/E117 (the 4-space indentation checks behind rule 6) are preview-gated in
+# ruff 0.17.1: without preview they are silently inert. Enabling preview adds
+# only E203/E272 to this tree, and both are ignored below.
+preview = true
+line-length = 88        # rule 5: Python lines are 88 characters maximum
+indent-width = 4        # rule 6: Python indentation is 4 spaces
+target-version = "py312"
+
+[tool.ruff.lint]
+# The `select` list mirrors pi-lens's bundled Python baseline
+# (pi-lens config/ruff/core.toml: E,W,F,I,B,UP,SIM,C4,PIE,S) so adding this
+# project config does not narrow the lint surface, then adds the rules below.
+select = [
+  "E",    # pycodestyle errors (rule 5 E501, rule 6 E111/E117 indentation)
+  "W",    # pycodestyle warnings (W191 tab indentation)
+  "F",    # pyflakes (F401 unused imports, F403/F405 wildcard imports)
+  "I",    # isort
+  "B",    # flake8-bugbear
+  "UP",   # pyupgrade (UP031 percent-format, UP032 .format -> f-string)
+  "SIM",  # flake8-simplify
+  "C4",   # flake8-comprehensions (C416 reducible comprehension)
+  "PIE",  # flake8-pie
+  "S",    # flake8-bandit
+
+  # Rule 1 - mandatory type hints on every parameter and return value.
+  "ANN001",  # missing type annotation for a function argument
+  "ANN002",  # missing type annotation for *args
+  "ANN003",  # missing type annotation for **kwargs
+  "ANN201",  # missing return type on a public function
+  "ANN202",  # missing return type on a private function
+  "ANN204",  # missing return type on a special method (__init__ etc.)
+  "ANN205",  # missing return type on a staticmethod
+  "ANN206",  # missing return type on a classmethod
+
+  # Rule 2 - list comprehensions that are reducible to a constructor call.
+  "C416",    # unnecessary-comprehension: [x for x in y] -> list(y)
+
+  # Rule 9 - no %-formatting and no str.format(); use f-strings.
+  "UP031",   # printf-string-formatting (%)
+  "UP032",   # f-string ("{}".format(...))
+]
+# Same exemptions pi-lens's bundled baseline applies, except E501: line length
+# is now a hard error (rule 5), so it is deliberately NOT ignored here.
+ignore = [
+  "B008",    # function call in default argument (FastAPI/typer idiom)
+  "SIM108",  # ternary operator (readability is subjective)
+  "S101",    # assert (idiomatic in pytest test code)
+  "S311",    # non-cryptographic random (ordinary jitter/sampling)
+  "S603",    # subprocess without shell=True (this is the safe form)
+  "S607",    # partial executable path in subprocess
+
+  # Preview-gated pycodestyle rules pulled in by `preview = true` above.
+  "E203",    # whitespace before ':' — conflicts with `ruff format` slice spacing
+  "E272",    # multiple spaces before keyword — not part of the style contract
+]
+
+[tool.ruff.format]
+indent-style = "space"

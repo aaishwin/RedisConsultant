@@ -1,0 +1,111 @@
+"""Block builders split out of evaltools/corpus/content_py.py (style contract rule 8).
+
+Pure functions over seed/stream arguments; no clock, randomness or I/O. The
+assembler in the original module re-imports these names; behaviour is unchanged.
+"""
+
+
+from evaltools.corpus.content import (
+    EscalationSpec,
+    locate_span,
+)
+from evaltools.corpus.prng import derive_int
+
+
+def _py_wrapper_depth_block(
+    entity: str, seed: int, stream: str
+) -> tuple[list[str], list[EscalationSpec]]:
+    """Three-hop closure chain around the client (wrapper_depth_exceeded)."""
+    suffix = derive_int(seed, f"{stream}:escalation", 0, 1000)
+    inner_statement = f"return client.get(f'{entity}:{{record_id}}')"
+    block = [
+        f"def make_{entity}_outer_resolver_{suffix}(record_id: str):",
+        "    def resolve_middle():",
+        "        def resolve_inner():",
+        f"            {inner_statement}",
+        "        return resolve_inner",
+        "",
+        "    return resolve_middle",
+        "",
+        "",
+    ]
+    specs = [
+        EscalationSpec(
+            reason_code="wrapper_depth_exceeded",
+            span=locate_span(block, 3, inner_statement),
+        )
+    ]
+    return block, specs
+
+
+def _py_dynamic_construction_block(
+    entity: str, seed: int, stream: str
+) -> tuple[list[str], list[EscalationSpec]]:
+    """Key namespace from an environment variable at runtime (dynamic_construction)."""
+    suffix = derive_int(seed, f"{stream}:escalation", 0, 1000)
+    dynamic_statement = f"dynamic_key = f'{{namespace_prefix}}:{entity}:{{record_id}}'"
+    block = [
+        "import os",
+        "",
+        "namespace_prefix = os.environ.get('CACHE_NAMESPACE', 'fallback')",
+        "",
+        "",
+        f"def load_dynamic_{entity}_{suffix}(record_id: str):",
+        f"    {dynamic_statement}",
+        "    return client.get(dynamic_key)",
+        "",
+        "",
+    ]
+    specs = [
+        EscalationSpec(
+            reason_code="dynamic_construction",
+            span=locate_span(block, 6, dynamic_statement),
+        )
+    ]
+    return block, specs
+
+
+def _py_unresolvable_expression_block(
+    entity: str, seed: int, stream: str
+) -> tuple[list[str], list[EscalationSpec]]:
+    """Key template returned by a policy lookup: statically unresolvable expression."""
+    suffix = derive_int(seed, f"{stream}:escalation", 0, 1000)
+    key_call = "return client.get(resolve_key_from_policy(record_id))"
+    block = [
+        "key_policy_table: dict = {}",
+        "",
+        "",
+        "def resolve_key_from_policy(record_id: str) -> str:",
+        f"    return key_policy_table.get(record_id, f'{entity}:{{record_id}}')",
+        "",
+        "",
+        f"def load_{entity}_{suffix}_via_policy(record_id: str):",
+        f"    {key_call}",
+        "",
+        "",
+    ]
+    specs = [
+        EscalationSpec(
+            reason_code="unresolvable_expression", span=locate_span(block, 8, key_call)
+        )
+    ]
+    return block, specs
+
+
+def _py_unsupported_syntax_block(
+    entity: str, seed: int, stream: str
+) -> tuple[list[str], list[EscalationSpec]]:
+    """Pathologically nested parenthesisation no bounded parser budget accepts."""
+    del entity  # the pathological line is entity-independent
+    nesting_depth = 200 + derive_int(seed, f"{stream}:depth", 0, 100)
+    deep_line = (
+        f"deeply_nested_value = {'(' * nesting_depth}seed_value{')' * nesting_depth}"
+    )
+    block = [deep_line, "", ""]
+    specs = [
+        EscalationSpec(
+            reason_code="unsupported_syntax",
+            span=locate_span(block, 0, "deeply_nested_value ="),
+        )
+    ]
+    return block, specs

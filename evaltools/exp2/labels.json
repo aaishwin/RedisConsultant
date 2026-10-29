@@ -1,0 +1,841 @@
+{
+  "schema_version": "exp2-labels 0.1.0",
+  "labeler": "data_processing-6123-6; cs-048..cs-052 added by data_processing-6123-9 from source reading at the same pin (f42514c3d716dc81c2bbc65b883c9dc545fcb56d)",
+  "pinned_sha": "f42514c3d716dc81c2bbc65b883c9dc545fcb56d",
+  "pinned_tag": "v6.4.2",
+  "sampling_rule": "Callsites hand-selected from rg-verified source lines in the pinned bullmq checkout by per-file scans for client-method call patterns (redis-queue-backend, redis-relay-backend, ioredis-client, node-redis-client, redis-connection, utils) plus a deliberate negative sweep of same-named non-Redis Map/Object/abstraction methods (get/set/keys/exec/has/addJob/moveToCompleted/on) in lock-manager, job, flow-producer, queue-getters. Labels are authored from source reading only, never from C-1 output. Span convention: 1-based inclusive lines per redis_intel.frontend.Span; multiline calls carry multiline=true and end_line = measured extent when verified, else the start line (start-pinned).",
+  "entries": [
+    {
+      "callsite_id": "cs-001",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 63,
+        "end_line": 63,
+        "multiline": false
+      },
+      "method": "get",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "proxyCache.get(client) — WeakMap cache lookup, Map API not a Redis command. Receiver unresolvable and 'get' is in the frontend method table, so this is a deliberate false-positive probe."
+    },
+    {
+      "callsite_id": "cs-002",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 91,
+        "end_line": 91,
+        "multiline": false
+      },
+      "method": "multi",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "dynamic",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Proxy override multi() delegating via augmentTransaction((client as any).multi(...)) — the Proxy→raw leg of the RedisConnection→Proxy→raw-ioredis chain; receiver is a typed-any cast so statically dynamic."
+    },
+    {
+      "callsite_id": "cs-003",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 126,
+        "end_line": 126,
+        "multiline": false
+      },
+      "method": "hset",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "dynamic",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Proxy hset override forwarding to raw ioredis hset (structured-options backward-compat shim)."
+    },
+    {
+      "callsite_id": "cs-004",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 143,
+        "end_line": 147,
+        "multiline": true
+      },
+      "method": "set",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "dynamic",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Proxy set override: structured {PX/EX} options flattened into ioredis varargs on the raw client (span verified: set( at 143 through ); at 147)."
+    },
+    {
+      "callsite_id": "cs-005",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 167,
+        "end_line": 167,
+        "multiline": false
+      },
+      "method": "zrange",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "dynamic",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Proxy zrange override forwarding varargs to raw ioredis zrange."
+    },
+    {
+      "callsite_id": "cs-006",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 170,
+        "end_line": 170,
+        "multiline": false
+      },
+      "method": "zrange",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "dynamic",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Proxy zrange override WITHSCORES branch forwarding to raw ioredis."
+    },
+    {
+      "callsite_id": "cs-007",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 172,
+        "end_line": 172,
+        "multiline": false
+      },
+      "method": "zrange",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "dynamic",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Proxy zrange override default branch forwarding to raw ioredis."
+    },
+    {
+      "callsite_id": "cs-008",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 319,
+        "end_line": 319,
+        "multiline": false
+      },
+      "method": "set",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "boundCache.set(prop, bound) — Map.set on the bound-method cache, not Redis. False-positive probe ('set' is in the frontend method table)."
+    },
+    {
+      "callsite_id": "cs-009",
+      "file": "src/classes/ioredis-client.ts",
+      "span": {
+        "start_line": 350,
+        "end_line": 350,
+        "multiline": false
+      },
+      "method": "set",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "proxyCache.set(client, proxy) — WeakMap.set, not Redis. False-positive probe."
+    },
+    {
+      "callsite_id": "cs-010",
+      "file": "src/classes/job.ts",
+      "span": {
+        "start_line": 275,
+        "end_line": 275,
+        "multiline": true
+      },
+      "method": "addJob",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "job.backend.addJob(...) — backend abstraction boundary, not a direct Redis client call; addJob is not a Redis command name."
+    },
+    {
+      "callsite_id": "cs-011",
+      "file": "src/classes/job.ts",
+      "span": {
+        "start_line": 675,
+        "end_line": 675,
+        "multiline": true
+      },
+      "method": "moveToCompleted",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "this.backend.moveToCompleted(...) — backend abstraction; receiver unresolvable and method not in the Redis method table."
+    },
+    {
+      "callsite_id": "cs-012",
+      "file": "src/classes/lock-manager.ts",
+      "span": {
+        "start_line": 60,
+        "end_line": 60,
+        "multiline": false
+      },
+      "method": "get",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "this.trackedJobs.get(id) — Map.get on the tracked-jobs dictionary, not Redis. False-positive probe ('get' is in the frontend method table)."
+    },
+    {
+      "callsite_id": "cs-013",
+      "file": "src/classes/lock-manager.ts",
+      "span": {
+        "start_line": 106,
+        "end_line": 106,
+        "multiline": false
+      },
+      "method": "keys",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "this.trackedJobs.keys() — Map.keys iterator, not Redis KEYS. False-positive probe."
+    },
+    {
+      "callsite_id": "cs-014",
+      "file": "src/classes/lock-manager.ts",
+      "span": {
+        "start_line": 110,
+        "end_line": 110,
+        "multiline": false
+      },
+      "method": "set",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "this.trackedJobs.set(jobId, {token, ts, abortController}) — Map.set, not Redis SET. False-positive probe."
+    },
+    {
+      "callsite_id": "cs-015",
+      "file": "src/classes/lock-manager.ts",
+      "span": {
+        "start_line": 115,
+        "end_line": 115,
+        "multiline": false
+      },
+      "method": "set",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "this.trackedJobs.set(jobId, ...) (second branch of the lock-extender timer) — Map.set, not Redis. False-positive probe."
+    },
+    {
+      "callsite_id": "cs-016",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 505,
+        "end_line": 505,
+        "multiline": false
+      },
+      "method": "multi",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "NodeRedisTransaction constructor wrapping this.raw.multi() — the node-redis adapter's single hop onto the raw node-redis client."
+    },
+    {
+      "callsite_id": "cs-017",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 564,
+        "end_line": 564,
+        "multiline": false
+      },
+      "method": "get",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "Adapter get() delegating to this.raw.get(key) with ?? null fallback — one hop over the raw node-redis client."
+    },
+    {
+      "callsite_id": "cs-018",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 578,
+        "end_line": 578,
+        "multiline": false
+      },
+      "method": "set",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "Adapter set() delegating to this.raw.set(key, String(value), opts)."
+    },
+    {
+      "callsite_id": "cs-019",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 585,
+        "end_line": 585,
+        "multiline": false
+      },
+      "method": "del",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "Adapter del() delegating to this.raw.del(keys)."
+    },
+    {
+      "callsite_id": "cs-020",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 808,
+        "end_line": 808,
+        "multiline": false
+      },
+      "method": "scan",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "Adapter scan() delegating to this.raw.scan(String(cursor), opts) — cursor stringified for node-redis v4/v5."
+    },
+    {
+      "callsite_id": "cs-021",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 850,
+        "end_line": 850,
+        "multiline": false
+      },
+      "method": "keys",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "Adapter keys() delegating to this.raw.keys(pattern) — genuine Redis KEYS."
+    },
+    {
+      "callsite_id": "cs-022",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 1025,
+        "end_line": 1025,
+        "multiline": false
+      },
+      "method": "del",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "Fire-and-forget this.raw.del(keys) inside the adapter's removal path."
+    },
+    {
+      "callsite_id": "cs-023",
+      "file": "src/classes/node-redis-client.ts",
+      "span": {
+        "start_line": 1057,
+        "end_line": 1057,
+        "multiline": false
+      },
+      "method": "exec",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "node_redis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "NodeRedisTransaction.exec() delegating to this.raw.exec() — transaction flush over the raw client."
+    },
+    {
+      "callsite_id": "cs-024",
+      "file": "src/classes/queue-getters.ts",
+      "span": {
+        "start_line": 704,
+        "end_line": 704,
+        "multiline": false
+      },
+      "method": "keys",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "Object.keys(globalVariables) — static Object utility, not Redis KEYS. False-positive probe ('keys' is in the frontend method table)."
+    },
+    {
+      "callsite_id": "cs-025",
+      "file": "src/classes/redis-connection.ts",
+      "span": {
+        "start_line": 409,
+        "end_line": 409,
+        "multiline": false
+      },
+      "method": "new IORedisCtor",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "direct",
+      "true_depth": 0,
+      "true_template": null,
+      "rationale": "new IORedisCtor(url, rest) — direct ioredis construction from a connection URL string."
+    },
+    {
+      "callsite_id": "cs-026",
+      "file": "src/classes/redis-connection.ts",
+      "span": {
+        "start_line": 410,
+        "end_line": 410,
+        "multiline": false
+      },
+      "method": "new IORedisCtor",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "direct",
+      "true_depth": 0,
+      "true_template": null,
+      "rationale": "new IORedisCtor(rest) — direct ioredis construction from an options object (no URL branch)."
+    },
+    {
+      "callsite_id": "cs-027",
+      "file": "src/classes/redis-connection.ts",
+      "span": {
+        "start_line": 411,
+        "end_line": 411,
+        "multiline": false
+      },
+      "method": "createIORedisClient",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "one_hop_wrapper",
+      "true_depth": 1,
+      "true_template": null,
+      "rationale": "createIORedisClient(ioredisClient) — the one-hop wrapper construction: wraps the raw ioredis client in the IRedisClient Proxy (research F-4 chain)."
+    },
+    {
+      "callsite_id": "cs-028",
+      "file": "src/classes/redis-connection.ts",
+      "span": {
+        "start_line": 417,
+        "end_line": 417,
+        "multiline": false
+      },
+      "method": "on",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "this._client.on('error', ...) — EventEmitter subscription on the client wrapper, not a Redis command; 'on' is not in the frontend method table and the receiver chain is not a client binding."
+    },
+    {
+      "callsite_id": "cs-029",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 342,
+        "end_line": 342,
+        "multiline": false
+      },
+      "method": "clientSetName",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "RedisQueueBackend.setClientId: await client.clientSetName(name) — CLIENT SETNAME subcommand through the IRedisClient proxy (RedisConnection→Proxy→raw-ioredis chain)."
+    },
+    {
+      "callsite_id": "cs-030",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 443,
+        "end_line": 443,
+        "multiline": false
+      },
+      "method": "runCommand",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "execCommand dispatches the versioned Lua script (client.runCommand(commandNameWithVersion, args)) — Lua-script op through the proxy chain."
+    },
+    {
+      "callsite_id": "cs-031",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 475,
+        "end_line": 475,
+        "multiline": false
+      },
+      "method": "lpos",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "isJobInList non-cluster fallback: client.lpos(listKey, jobId) — LPOS on the proxied client."
+    },
+    {
+      "callsite_id": "cs-032",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 485,
+        "end_line": 485,
+        "multiline": false
+      },
+      "method": "zscore",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": "toKey(state) → bull:<queue>:<state>",
+      "rationale": "isJobInState: client.zscore(this.queue.toKey(state), jobId) — ZSCORE with a dynamically-built queue key."
+    },
+    {
+      "callsite_id": "cs-033",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 711,
+        "end_line": 711,
+        "multiline": false
+      },
+      "method": "pipeline",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "addJobs opens a bulk pipeline: const pipeline = client.pipeline() — PIPELINE opener through the proxy chain."
+    },
+    {
+      "callsite_id": "cs-034",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 756,
+        "end_line": 756,
+        "multiline": false
+      },
+      "method": "multi",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Transaction bulk add: const multi = client.multi() — MULTI opener through the proxy chain."
+    },
+    {
+      "callsite_id": "cs-035",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 1813,
+        "end_line": 1813,
+        "multiline": false
+      },
+      "method": "hgetall",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": "toKey('repeat:' + key) → bull:<queue>:repeat:<key>",
+      "rationale": "getRepeatJobs: client.hgetall(this.queue.toKey('repeat:' + key)) — HGETALL on the repeat job-scheduler hash, key built via toKey concat."
+    },
+    {
+      "callsite_id": "cs-036",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 1824,
+        "end_line": 1824,
+        "multiline": false
+      },
+      "method": "zrange",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "getJobSchedulersRange ascending branch: client.zrange(key, start, end, { WITHSCORES: true })."
+    },
+    {
+      "callsite_id": "cs-037",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 1825,
+        "end_line": 1825,
+        "multiline": false
+      },
+      "method": "zrevrange",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "getJobSchedulersRange descending branch: client.zrevrange(key, start, end, { WITHSCORES: true })."
+    },
+    {
+      "callsite_id": "cs-038",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2357,
+        "end_line": 2357,
+        "multiline": true
+      },
+      "method": "scan",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "Pagination scan: await client.scan(cursor, { MATCH, COUNT }) — SCAN through the proxy chain (span start-pinned; call spans several lines)."
+    },
+    {
+      "callsite_id": "cs-039",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2478,
+        "end_line": 2478,
+        "multiline": false
+      },
+      "method": "hgetall",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": "toKey(jobId) → bull:<queue>:<jobId>",
+      "rationale": "getJobData: await client.hgetall(this.queue.toKey(jobId)) — HGETALL of the job hash."
+    },
+    {
+      "callsite_id": "cs-040",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2486,
+        "end_line": 2486,
+        "multiline": false
+      },
+      "method": "get",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": "`${this.queue.keys.de}:${deduplicationId}`",
+      "rationale": "getDeduplicationJobId: client.get(`${this.queue.keys.de}:${deduplicationId}`) — GET on a template-literal dedup key."
+    },
+    {
+      "callsite_id": "cs-041",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2522,
+        "end_line": 2522,
+        "multiline": false
+      },
+      "method": "del",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "trimLogs: await client.del(logsKey) — DEL of the log list key."
+    },
+    {
+      "callsite_id": "cs-042",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2721,
+        "end_line": 2721,
+        "multiline": false
+      },
+      "method": "hset",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "updateMetaValues: client.hset(this.queue.keys.meta, values) — HSET of the queue meta hash."
+    },
+    {
+      "callsite_id": "cs-043",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2746,
+        "end_line": 2746,
+        "multiline": false
+      },
+      "method": "hexists",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "isMetaFieldExists: await client.hexists(this.queue.keys.meta, field) — HEXISTS probe on the meta hash."
+    },
+    {
+      "callsite_id": "cs-044",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2752,
+        "end_line": 2752,
+        "multiline": true
+      },
+      "method": "set",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "setGlobalRateLimit: await client.set(this.queue.keys.limiter, Number.MAX_SAFE_INTEGER, {...}) — SET with TTL options object (span start-pinned)."
+    },
+    {
+      "callsite_id": "cs-045",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2759,
+        "end_line": 2759,
+        "multiline": false
+      },
+      "method": "del",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "clearGlobalRateLimit: client.del(this.queue.keys.limiter) — DEL of the limiter key."
+    },
+    {
+      "callsite_id": "cs-046",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2865,
+        "end_line": 2865,
+        "multiline": true
+      },
+      "method": "xadd",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "addEvent: client.xadd(this.queue.keys.events, '*', fields, { MAXLEN ... }) — XADD on the events stream with MAXLEN cap (span start-pinned)."
+    },
+    {
+      "callsite_id": "cs-047",
+      "file": "src/classes/redis-queue-backend.ts",
+      "span": {
+        "start_line": 2874,
+        "end_line": 2874,
+        "multiline": true
+      },
+      "method": "xread",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "readEvents: client.xread([{ key: events, id }], { BLOCK: blockTimeout }) — XREAD with BLOCK option (span start-pinned)."
+    },
+    {
+      "callsite_id": "cs-048",
+      "file": "src/classes/redis-relay-backend.ts",
+      "span": {
+        "start_line": 268,
+        "end_line": 274,
+        "multiline": true
+      },
+      "method": "runCommand",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "client.runCommand(`relayReadInbox:${packageVersion}`, [this.nodesKey, this.baseKey, nodeId, cursor, opts.count]) inside connection.runWithClusterRecovery (span verified: client.runCommand( at 268 through ]), at 274). client = await connection.client (line 260) is the RedisConnection-wrapped RedisClient whose runCommand forwards Lua-script invocations to the raw ioredis client, so relay-backend -> RedisConnection wrapper -> raw ioredis is the same two-layer chain labelled as cs-030."
+    },
+    {
+      "callsite_id": "cs-049",
+      "file": "src/classes/redis-relay-backend.ts",
+      "span": {
+        "start_line": 281,
+        "end_line": 284,
+        "multiline": true
+      },
+      "method": "xread",
+      "expected_is_redis_callsite": true,
+      "expected_client_kind": "ioredis",
+      "construction_form": "two_layer_chain",
+      "true_depth": 2,
+      "true_template": null,
+      "rationale": "client.xread([{ key: `${this.baseKey}:${nodeId}:inbox`, id: cursor }], { BLOCK: opts.blockMs, COUNT: 1 }) — the blocking inbox read on the RedisConnection-wrapped client (client = await connection.client at line 260); xread is not a wrapper method, so the ioredis-client Proxy forwards it to the raw ioredis client (span verified: client.xread( at 281 through }), at 284)."
+    },
+    {
+      "callsite_id": "cs-050",
+      "file": "src/classes/job-scheduler.ts",
+      "span": {
+        "start_line": 383,
+        "end_line": 383,
+        "multiline": false
+      },
+      "method": "keys",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "Object.keys(jobData).length > 0 (line 383) — the JavaScript Object.keys static method over a plain job-data object, not a Redis KEYS command. Receiver 'Object' is unresolvable and 'keys' is in the frontend method table, so this is a deliberate false-positive probe in a file the label set had not yet covered."
+    },
+    {
+      "callsite_id": "cs-051",
+      "file": "src/classes/flow-producer.ts",
+      "span": {
+        "start_line": 561,
+        "end_line": 561,
+        "multiline": false
+      },
+      "method": "keys",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "const processedKeys = Object.keys(processed) (line 561) — Object.keys over the processed-jobs map while assembling a ParentJobError, not a Redis KEYS command; receiver 'Object' is unresolvable and 'keys' is in the frontend method table, so a deliberate false-positive probe."
+    },
+    {
+      "callsite_id": "cs-052",
+      "file": "src/classes/flow-producer.ts",
+      "span": {
+        "start_line": 562,
+        "end_line": 562,
+        "multiline": false
+      },
+      "method": "keys",
+      "expected_is_redis_callsite": false,
+      "expected_client_kind": "none",
+      "construction_form": "dynamic",
+      "true_depth": null,
+      "true_template": null,
+      "rationale": "const ignoredKeys = Object.keys(ignored) (line 562) — sibling of cs-051 on the immediately following line, Object.keys over the ignored-jobs map; deliberate false-positive probe of the same Object-API shape in the adjacent statement."
+    }
+  ]
+}

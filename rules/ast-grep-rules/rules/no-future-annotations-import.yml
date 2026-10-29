@@ -1,0 +1,31 @@
+---
+id: no-future-annotations-import
+name: No `from __future__ import annotations`
+language: Python
+severity: error
+category: style
+message: >-
+  `from __future__ import annotations` is banned — annotate with real runtime
+  types
+note: |
+  Rule 4 of the repository style contract. Postponed (stringified)
+  annotations hide the real types from runtime introspection —
+  `typing.get_type_hints`, dataclass/Pydantic field resolution and FastAPI
+  parameter probing all read the annotation objects, not their source text.
+  This repository therefore requires annotations usable at runtime.
+
+  The rule matches the statement structurally, so the aliased form
+  (`from __future__ import annotations as ann`) and the comma-list form
+  (`from __future__ import generator_stop, annotations`) are both reported,
+  not only the exact single-name spelling. Other `__future__` features
+  (`division`, `generator_stop`) are not reported.
+
+  Verified against the real ast-grep engine (`ast-grep scan`, napi corpus):
+  plain/aliased/comma-list forms -> 3 findings; `from __future__ import
+  division` -> 0 findings.
+rule:
+  kind: future_import_statement
+  has:
+    stopBy: end
+    kind: dotted_name
+    regex: "\\bannotations\\b"

@@ -1,0 +1,40 @@
+{
+  "checksum_manifest_tree_sha256": "860e55f7c1536e50fa40fc71367377785fbd08ea2b75771334e037ee8f29c1ea",
+  "edge_count": 2000,
+  "escalation_rungs": [
+    {
+      "measured_p95_ms": 0.18808292225003242,
+      "outcome": "adopted",
+      "rung": "closure_tables"
+    },
+    {
+      "measured_p95_ms": 0.000125030055642128,
+      "outcome": "adopted",
+      "rung": "materialised_projections"
+    }
+  ],
+  "language": "typescript_node",
+  "measurement_environment": {
+    "cpu_cores": 8,
+    "cpu_model": "Apple M2",
+    "filesystem": "apfs",
+    "is_reference_profile": false,
+    "label": "advisory",
+    "os": "Darwin",
+    "os_version": "25.5.0",
+    "python_version": "3.13.12",
+    "ram_gb": 8
+  },
+  "p95_wall_ms": 0.19295793026685715,
+  "pattern_count": 100,
+  "per_pattern_ms": {
+    "basis": "nearest-rank percentiles over the 100 per-pattern baseline iterations",
+    "max_ms": 0.23329188115894794,
+    "p50_ms": 0.17858296632766724,
+    "p95_ms": 0.19295793026685715
+  },
+  "schema_version": "eval-schema 0.1.1",
+  "seed": 194406,
+  "tier": "S",
+  "verdict": "advisory-pass"
+}

@@ -1,0 +1,2 @@
+* text=auto eol=lf
+*.py whitespace=blank-at-eol,blank-at-eof

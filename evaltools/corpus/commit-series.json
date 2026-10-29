@@ -1,0 +1,228 @@
+{
+  "commits": [
+    {
+      "change_kind": "modified_body",
+      "commit_index": 1,
+      "files": [
+        {
+          "description": "Edit function bodies in src/module_112/store_05603.ts without changing signatures or key templates.",
+          "path": "src/module_112/store_05603.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "renamed_file",
+      "commit_index": 2,
+      "files": [
+        {
+          "description": "Rename src/module_078/store_03945.ts to src/module_078/store_03945.renamed.ts (scripted commit 2).",
+          "path": "src/module_078/store_03945.renamed.ts",
+          "prior_path": "src/module_078/store_03945.ts"
+        }
+      ]
+    },
+    {
+      "change_kind": "deleted_file",
+      "commit_index": 3,
+      "files": [
+        {
+          "description": "Delete src/module_142/store_07133.ts; downstream readers must observe the removal.",
+          "path": "src/module_142/store_07133.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "changed_signature",
+      "commit_index": 4,
+      "files": [
+        {
+          "description": "Change a function signature in src/module_119/store_05950.ts.",
+          "path": "src/module_119/store_05950.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "modified_key_template",
+      "commit_index": 5,
+      "files": [
+        {
+          "description": "Change a cache key template in src/module_073/resolver_03688.ts.",
+          "path": "src/module_073/resolver_03688.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "grammar_relevant_syntax",
+      "commit_index": 6,
+      "files": [
+        {
+          "description": "Introduce grammar-relevant syntax (template literal / TSX) in src/module_087/store_04354.ts.",
+          "path": "src/module_087/store_04354.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "no_op",
+      "commit_index": 7,
+      "files": [
+        {
+          "description": "Whitespace-only touch to src/module_152/store_07637.ts; the parsed tree is unchanged.",
+          "path": "src/module_152/store_07637.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "modified_body",
+      "commit_index": 8,
+      "files": [
+        {
+          "description": "Edit function bodies in src/module_024/store_01225.ts without changing signatures or key templates.",
+          "path": "src/module_024/store_01225.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "renamed_file",
+      "commit_index": 9,
+      "files": [
+        {
+          "description": "Rename src/module_062/store_03112.ts to src/module_062/store_03112.renamed.ts (scripted commit 9).",
+          "path": "src/module_062/store_03112.renamed.ts",
+          "prior_path": "src/module_062/store_03112.ts"
+        }
+      ]
+    },
+    {
+      "change_kind": "deleted_file",
+      "commit_index": 10,
+      "files": [
+        {
+          "description": "Delete src/module_018/store_00945.ts; downstream readers must observe the removal.",
+          "path": "src/module_018/store_00945.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "changed_signature",
+      "commit_index": 11,
+      "files": [
+        {
+          "description": "Change a function signature in src/module_071/store_03558.ts.",
+          "path": "src/module_071/store_03558.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "modified_key_template",
+      "commit_index": 12,
+      "files": [
+        {
+          "description": "Change a cache key template in src/module_054/store_02727.ts.",
+          "path": "src/module_054/store_02727.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "grammar_relevant_syntax",
+      "commit_index": 13,
+      "files": [
+        {
+          "description": "Introduce grammar-relevant syntax (template literal / TSX) in src/module_130/store_06524.ts.",
+          "path": "src/module_130/store_06524.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "no_op",
+      "commit_index": 14,
+      "files": [
+        {
+          "description": "Whitespace-only touch to src/module_049/store_02453.ts; the parsed tree is unchanged.",
+          "path": "src/module_049/store_02453.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "modified_body",
+      "commit_index": 15,
+      "files": [
+        {
+          "description": "Edit function bodies in src/module_149/store_07458.ts without changing signatures or key templates.",
+          "path": "src/module_149/store_07458.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "renamed_file",
+      "commit_index": 16,
+      "files": [
+        {
+          "description": "Rename src/module_109/service_05475.ts to src/module_109/service_05475.renamed.ts (scripted commit 16).",
+          "path": "src/module_109/service_05475.renamed.ts",
+          "prior_path": "src/module_109/service_05475.ts"
+        }
+      ]
+    },
+    {
+      "change_kind": "deleted_file",
+      "commit_index": 17,
+      "files": [
+        {
+          "description": "Delete src/module_186/store_09332.ts; downstream readers must observe the removal.",
+          "path": "src/module_186/store_09332.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "changed_signature",
+      "commit_index": 18,
+      "files": [
+        {
+          "description": "Change a function signature in src/module_073/service_03662.ts.",
+          "path": "src/module_073/service_03662.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "modified_key_template",
+      "commit_index": 19,
+      "files": [
+        {
+          "description": "Change a cache key template in src/module_135/service_06778.ts.",
+          "path": "src/module_135/service_06778.ts",
+          "prior_path": null
+        }
+      ]
+    },
+    {
+      "change_kind": "grammar_relevant_syntax",
+      "commit_index": 20,
+      "files": [
+        {
+          "description": "Introduce grammar-relevant syntax (template literal / TSX) in src/module_161/service_08068.ts.",
+          "path": "src/module_161/service_08068.ts",
+          "prior_path": null
+        }
+      ]
+    }
+  ],
+  "language": "typescript_node",
+  "schema_version": "eval-schema 0.1.1",
+  "seed": 194406,
+  "tier": "L"
+}

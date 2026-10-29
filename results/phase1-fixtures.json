@@ -1,0 +1,142 @@
+{
+  "artifact": "results/phase1-fixtures.json",
+  "fixture_names": [
+    "tests/phase1/test_conn_config_redaction.py::test_redaction_is_idempotent_and_pure",
+    "tests/phase1/test_conn_config_redaction.py::test_redaction_raises_typeerror_on_non_mapping",
+    "tests/phase1/test_conn_config_redaction.py::test_conn_config_rows_contain_no_sentinel",
+    "tests/phase1/test_conn_config_redaction.py::test_sentinel_never_appears_in_any_ir_row_or_artifact",
+    "tests/phase1/test_conn_config_redaction.py::test_builder_invokes_the_governance_seam_per_clients_row",
+    "tests/phase1/test_epistemic_tiers.py::test_every_claim_bearing_row_has_a_six_tier_epistemic_value",
+    "tests/phase1/test_epistemic_tiers.py::test_epistemic_tiers_survive_the_round_trip",
+    "tests/phase1/test_exp2_negatives.py::test_label_set_is_the_frozen_52_entry_set",
+    "tests/phase1/test_exp2_negatives.py::test_all_fourteen_negative_labels_stay_true_negatives",
+    "tests/phase1/test_exp2_negatives.py::test_each_negative_label_span_carries_no_callsite_in_its_file",
+    "tests/phase1/test_exp2_negatives.py::test_negative_label_lines_exist_in_the_pinned_checkout",
+    "tests/phase1/test_fr18_exp2_reproduction.py::test_reproduction_matches_the_recorded_exp2_artifact_per_callsite",
+    "tests/phase1/test_fr18_exp2_reproduction.py::test_reproduction_leaves_the_committed_result_untouched",
+    "tests/phase1/test_grammar_matrix.py::test_registry_matches_the_contract_matrix",
+    "tests/phase1/test_grammar_matrix.py::test_tsx_is_never_the_typescript_grammar",
+    "tests/phase1/test_grammar_matrix.py::test_tsx_source_parses_cleanly_only_under_the_tsx_grammar",
+    "tests/phase1/test_grammar_matrix.py::test_every_extension_yields_the_contract_grammar_id",
+    "tests/phase1/test_grammar_matrix.py::test_unsupported_extension_is_recorded_not_dropped",
+    "tests/phase1/test_parser_pins.py::test_pyproject_declares_exactly_the_three_parser_pins",
+    "tests/phase1/test_parser_pins.py::test_uv_lock_resolves_the_pinned_versions_without_the_language_pack",
+    "tests/phase1/test_parser_pins.py::test_parsing_each_grammar_requires_no_network",
+    "tests/phase1/test_resolution_rules.py::test_r1_same_class_member_binding_resolves",
+    "tests/phase1/test_resolution_rules.py::test_r2_constructor_injection_resolves",
+    "tests/phase1/test_resolution_rules.py::test_r3_same_file_factory_return_resolves",
+    "tests/phase1/test_resolution_rules.py::test_r3_factory_wrapping_r2_injection_reaches_depth_two",
+    "tests/phase1/test_resolution_rules.py::test_r3_factory_bound_local_resolves",
+    "tests/phase1/test_resolution_rules.py::test_r4_dynamic_require_resolves_in_both_forms",
+    "tests/phase1/test_resolution_rules.py::test_r5_unresolvable_receiver_is_never_a_callsite",
+    "tests/phase1/test_resolution_rules.py::test_resolution_rule_set_drop_count_is_zero",
+    "tests/phase1/test_serialization_roundtrip.py::test_all_fourteen_kinds_round_trip_byte_equal",
+    "tests/phase1/test_serialization_roundtrip.py::test_round_trip_survives_deserialize_recheck",
+    "tests/phase1/test_unknown_drops.py::test_zero_silent_drops_across_the_full_phase1_fixture_corpus",
+    "tests/phase1/test_unknown_drops.py::test_every_reason_code_stays_inside_the_contract_enum",
+    "tests/phase1/test_unknown_drops.py::test_dynamic_key_concat_produces_unknown_key_expr_row",
+    "tests/phase1/test_unknown_drops.py::test_depth_three_chain_is_recorded_never_dropped",
+    "tests/phase1/test_unknown_drops.py::test_over_cap_file_is_recorded_not_dropped",
+    "tests/phase1/test_unknown_drops.py::test_over_budget_ast_is_recorded_not_dropped",
+    "tests/phase1/test_unknown_drops.py::test_parse_error_regions_are_recorded_with_the_tree_kept",
+    "tests/phase1/test_wrapper_depth.py::test_direct_construction_resolves_at_depth_zero",
+    "tests/phase1/test_wrapper_depth.py::test_one_hop_wrapper_resolves_at_depth_one",
+    "tests/phase1/test_wrapper_depth.py::test_depth_two_chain_resolves_concrete_with_depth_recorded",
+    "tests/phase1/test_wrapper_depth.py::test_depth_three_chain_escalates_with_depth_and_candidate_flag"
+  ],
+  "grammar_id_matrix": {
+    "plain.cjs": "javascript",
+    "plain.cts": "typescript",
+    "plain.js": "javascript",
+    "plain.jsx": "javascript",
+    "plain.mjs": "javascript",
+    "plain.mts": "typescript",
+    "plain.ts": "typescript",
+    "plain.tsx": "tsx",
+    "unsupported .py": "unsupported"
+  },
+  "label_audit": {
+    "checked_callsite_ids": [
+      "cs-002",
+      "cs-003",
+      "cs-004",
+      "cs-005",
+      "cs-006",
+      "cs-007",
+      "cs-016",
+      "cs-001",
+      "cs-008",
+      "cs-009",
+      "cs-010",
+      "cs-011",
+      "cs-012",
+      "cs-013"
+    ],
+    "checked_count": 14,
+    "labels_sha256": "82d3307fb46bda1d364e11a122c7501bf79fd3e2bac40e8d80903c59ffbe79ad",
+    "labels_sha256_matches_frozen": true,
+    "min_required": 10,
+    "mismatches": [],
+    "note": "Contract 2 \u00a73.10 says 'total_callsites: 50'; the actual frozen label set contains 52 entries (38 positive / 14 negative). The real count is recorded here and the contract-text deviation is flagged instead of edited (leader decision recorded in the dispatch).",
+    "result": "pass",
+    "total_callsites": 52
+  },
+  "per_ac": {
+    "AC-11": {
+      "evidence": "grammar registry matrix + per-extension ParseResult grammar_id/grammar_version (tests/phase1/test_grammar_matrix.py); .tsx \u21d2 tsx, never typescript (structural ERROR divergence proven)",
+      "status": "pass"
+    },
+    "AC-12": {
+      "evidence": "drop counter == 0 over the ingestable Phase-1 fixture corpus; escalation fixtures produce explicit unknowns entries (tests/phase1/test_unknown_drops.py); unsupported-syntax construct accounted at C-1 level and at C-2 as a recorded unknowns entry (subject_kind=file, reason=unsupported_syntax) with no files row (FileRow.grammar_id has no 'unsupported' member) \u2014 fixed in debug attempt 1",
+      "status": "pass"
+    },
+    "AC-13": {
+      "evidence": "all 14 entity kinds present; serialize(deserialize(serialize(d))) byte-equal + structural equality (tests/phase1/test_serialization_roundtrip.py); INVALIDATES/test-ref kinds exercised at the serialization layer (builder does not emit them in Phase 1)",
+      "status": "pass"
+    },
+    "AC-14": {
+      "evidence": "depth 0/1/2 concrete via the public pipeline with DEPTH recorded on client rows and edges; depth-3 escalation (UNKNOWN + wrapper_depth_exceeded + model_hypothesis_candidate + DEPTH 3) verified at the ClientChainResolver level because the C-1 receiver gate (contract-conformant R5) never emits >1-hop receivers (tests/phase1/test_wrapper_depth.py)",
+      "status": "pass"
+    },
+    "AC-15": {
+      "evidence": "FR-18 reproduction re-runs the EXP-2 harness into tmp and matches the committed results/exp2.json per-callsite exactly (both measurement blocks) (tests/phase1/test_fr18_exp2_reproduction.py)",
+      "status": "pass"
+    },
+    "AC-16": {
+      "evidence": "sentinel secrets appear unredacted nowhere in the serialized IR: the construction call's config argument no longer becomes a key expression (debug attempt 1); every clients.conn_config row is redacted via the governance seam, redact(redact(x)) == redact(x), non-mapping input raises TypeError (tests/phase1/test_conn_config_redaction.py::test_sentinel_never_appears_in_any_ir_row_or_artifact)",
+      "status": "pass"
+    },
+    "AC-17": {
+      "evidence": "epistemic present and six-tier on every claim-bearing row of the fixture IrDelta, before and after the round trip (tests/phase1/test_epistemic_tiers.py)",
+      "status": "pass"
+    },
+    "AC-18": {
+      "evidence": "pyproject.toml pins tree-sitter==0.23.2 / tree-sitter-typescript==0.23.2 / tree-sitter-javascript==0.23.1; no tree-sitter-language-pack in pyproject or uv.lock; socket-guarded parse per grammar succeeds (tests/phase1/test_parser_pins.py)",
+      "status": "pass"
+    },
+    "AC-19": {
+      "evidence": "one fixture per \u00a73.4 rev-3 rule: R1 class_field_initializer (DEPTH 0), R2 constructor_injection (DEPTH 1, STATIC_INFERENCE, annotation construction), R3 factory_return (DEPTH 1; factory over R2 injection reaches DEPTH 2 concrete), R4 dynamic_require both forms (DEPTH 0), R5 negative never a callsite with one recorded unresolvable_expression entry; drop count 0 across the set (tests/phase1/test_resolution_rules.py)",
+      "status": "pass"
+    },
+    "AC-20": {
+      "evidence": "all 14 negative EXP-2 labels stay true negatives: zero false positives in the harness-shaped re-run and zero same-method callsites on every negative span (tests/phase1/test_exp2_negatives.py)",
+      "status": "pass"
+    }
+  },
+  "round_trip_checksum": {
+    "deserialized_resha256": "a0c36a32053b4f34028d0599f99fb2b0cce6a73428152c4b05797639747951b1",
+    "equal": true,
+    "fixture": "all_fourteen_kinds (+ INVALIDATES/test-ref rows at the serialization layer)",
+    "ir_schema_version": "0.1.0",
+    "serialized_sha256": "a0c36a32053b4f34028d0599f99fb2b0cce6a73428152c4b05797639747951b1"
+  },
+  "schema_version": "eval-schema 0.1.1",
+  "sentinel_secret_scan": {
+    "files_scanned": 1,
+    "idempotence_check": "pass",
+    "matches": 0,
+    "note": "matches must stay 0: any match would be the AC-16 leak returning (a construction call's config argument reaching the serialized IR unredacted). Fixed in debug attempt 1; every clients.conn_config row is redacted via the governance seam"
+  },
+  "unknown_drop_count": 0,
+  "verdict": "pass"
+}
